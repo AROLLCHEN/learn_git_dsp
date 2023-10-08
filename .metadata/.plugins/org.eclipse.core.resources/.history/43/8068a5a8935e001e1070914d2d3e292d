@@ -1,0 +1,13 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Each subdirectory must supply rules for building sources it contributes
+APP/dma/dma.obj: ../APP/dma/dma.c $(GEN_OPTS) $(GEN_HDRS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: C2000 Compiler'
+	"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_15.12.1.LTS/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="D:/DSP2833x_ProjectExample/DSP2833x_Libraries/DSP2833x_common/include" --include_path="D:/DSP2833x_ProjectExample/DSP2833x_Libraries/DSP2833x_headers/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_15.12.1.LTS/include" --include_path="D:/DSP2833x_ProjectExample/DSP2833x_Examples/oled1/APP/adc" --include_path="D:/DSP2833x_ProjectExample/DSP2833x_Examples/oled1/APP/delay" --include_path="D:/DSP2833x_ProjectExample/DSP2833x_Examples/oled1/APP/dma" --include_path="D:/DSP2833x_ProjectExample/DSP2833x_Examples/oled1/APP/ecap" --include_path="D:/DSP2833x_ProjectExample/DSP2833x_Examples/oled1/APP/epwm" --include_path="D:/DSP2833x_ProjectExample/DSP2833x_Examples/oled1/APP/exti" --include_path="D:/DSP2833x_ProjectExample/DSP2833x_Examples/oled1/APP/iic" --include_path="D:/DSP2833x_ProjectExample/DSP2833x_Examples/oled1/APP/key" --include_path="D:/DSP2833x_ProjectExample/DSP2833x_Examples/oled1/APP/lcd12864" --include_path="D:/DSP2833x_ProjectExample/DSP2833x_Examples/oled1/APP/lcd1602" --include_path="D:/DSP2833x_ProjectExample/DSP2833x_Examples/oled1/APP/leds" --include_path="D:/DSP2833x_ProjectExample/DSP2833x_Examples/oled1/APP/OLED" --include_path="D:/DSP2833x_ProjectExample/DSP2833x_Examples/oled1/APP/relay" --include_path="D:/DSP2833x_ProjectExample/DSP2833x_Examples/oled1/APP/spi" --include_path="D:/DSP2833x_ProjectExample/DSP2833x_Examples/oled1/APP/time" --include_path="D:/DSP2833x_ProjectExample/DSP2833x_Examples/oled1/APP/uart" --advice:performance=all -g --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="APP/dma/dma.d" --obj_directory="APP/dma" $(GEN_OPTS__FLAG) "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+

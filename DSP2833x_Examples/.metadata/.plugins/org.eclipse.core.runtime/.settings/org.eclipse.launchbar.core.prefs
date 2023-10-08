@@ -1,0 +1,14 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+activeLaunchTarget=null\:---
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:Example06_DSP2833x_Key,org.eclipse.launchbar.core.descriptorType.default\:Example07_DSP2833x_DC_Motor,org.eclipse.launchbar.core.descriptorType.default\:Example08_DSP2833x_Step_Motor,org.eclipse.launchbar.core.descriptorType.default\:Example09_DSP2833x_External_Interruption,org.eclipse.launchbar.core.descriptorType.default\:Example10_DSP2833x_Time0,org.eclipse.launchbar.core.descriptorType.default\:Example11_DSP2833x_Time1,org.eclipse.launchbar.core.descriptorType.default\:Example12_DSP2833x_Time2,org.eclipse.launchbar.core.descriptorType.default\:Example13_DSP2833x_8Seg,org.eclipse.launchbar.core.descriptorType.default\:Example14_DSP2833x_Epwm_Time_Interrupt,org.eclipse.launchbar.core.descriptorType.default\:Example15_DSP2833x_Epwm_Up_AQ,org.eclipse.launchbar.core.descriptorType.default\:Example01_DSP2833x_ClockSystem,org.eclipse.launchbar.core.descriptorType.default\:Example02_DSP2833x_LED,org.eclipse.launchbar.core.descriptorType.default\:Example03_DSP2833x_LEDFlow,org.eclipse.launchbar.core.descriptorType.default\:Example04_DSP2833x_BEEP,org.eclipse.launchbar.core.descriptorType.default\:Example05_DSP2833x_Relay,org.eclipse.launchbar.core.descriptorType.default\:Example16_DSP2833x_Epwm_updown_AQ
+eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:DSP2833x_ProjectTemplate/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:DSP2833x_ProjectTemplate/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:Example01_DSP2833x_ClockSystem/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:Example01_DSP2833x_ClockSystem/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:Example16_DSP2833x_Epwm_updown_AQ/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:fft_test/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:oled1/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:oled1/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

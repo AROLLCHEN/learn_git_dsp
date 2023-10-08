@@ -1,0 +1,8 @@
+
+**** Build of configuration Debug for project fft_test ****
+
+"C:\\ti\\ccs1240\\ccs\\utils\\bin\\gmake" -k all 
+ 
+gmake: Nothing to be done for 'all'.
+
+**** Build Finished ****

@@ -1,0 +1,5 @@
+# FIXED
+
+APP/MPU6050/mpu6050.obj: ../APP/MPU6050/mpu6050.c
+
+../APP/MPU6050/mpu6050.c: 
