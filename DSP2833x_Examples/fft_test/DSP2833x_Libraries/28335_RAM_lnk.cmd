@@ -34,8 +34,8 @@ PAGE 0 :
    BEGIN      : origin = 0x000000, length = 0x000002     /* Boot to M0 will go here                      */
    BOOT_RSVD  : origin = 0x000002, length = 0x00004E     /* Part of M0, BOOT rom will use this for stack */
 
-   RAML0      : origin = 0x008000, length = 0x000800
-   RAML1L2    : origin = 0x008800, length = 0x004800
+   RAML0      : origin = 0x008000, length = 0x001000
+   RAML1L2    : origin = 0x009000, length = 0x008000
    ZONE7A     : origin = 0x200000, length = 0x00FC00    /* XINTF zone 7 - program space */
 
    FLASHH     : origin = 0x300000, length = 0x008000     /* on-chip FLASH */
@@ -113,14 +113,21 @@ SECTIONS
     .pinit           : > RAML0,     PAGE = 0
     .switch          : > RAML0,     PAGE = 0
 
-    .stack           : > RAMM1,     PAGE = 1
+    .stack           : > RAML3,     PAGE = 1
     .ebss            : > RAML3,     PAGE = 1
     .econst          : > RAML3,     PAGE = 1
     .sysmem          : > RAML3,     PAGE = 1
     .esysmem         : > RAML3,     PAGE = 1
+    ramfuncs 		 : > RAML3, 	PAGE = 1
 
     .sysmem          : > RAML3,     PAGE = 1
 
+	//FIR_buffer0		: > RAML5,     PAGE = 1
+	//FIR_buffer1		: > RAML5,     PAGE = 1
+
+
+
+	FFT_buffer0		: > RAML4,     PAGE = 1
 	FFT_buffer1		: > RAML4,     PAGE = 1
 	FFT_buffer2		: > RAML4,     PAGE = 1
 	FFT_buffer3		: > RAML5,     PAGE = 1

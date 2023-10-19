@@ -24,5 +24,7 @@
 void LCD1602_Init(void);
 void LCD1602_DispString(char line,char *str);
 void LCD1602_DispStringEx(char line,char x,char *str);
-
+void LCD1602_WriteData(unsigned char dat);
+void LCD1602_WriteCmd(unsigned char cmd);
+void DispStr(unsigned char *ptr);
 #endif /* LCD1602_H_ */

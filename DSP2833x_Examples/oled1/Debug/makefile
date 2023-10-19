@@ -45,8 +45,8 @@ ORDERED_OBJS += \
 "./DSP2833x_Libraries/DSP2833x_SysCtrl.obj" \
 "./DSP2833x_Libraries/DSP2833x_Xintf.obj" \
 "./DSP2833x_Libraries/DSP2833x_usDelay.obj" \
-"../28335_RAM_lnk.cmd" \
-"../DSP2833x_Libraries/DSP2833x_Headers_nonBIOS.cmd" \
+"../CMD/DSP2833x_Headers_nonBIOS.cmd" \
+"../CMD/F28335.cmd" \
 "../DSP2833x_Libraries/IQmath.lib" \
 $(GEN_CMDS__FLAG) \
 -llibc.a \
@@ -75,6 +75,7 @@ RMDIR := RMDIR /S/Q
 -include APP/spi/subdir_vars.mk
 -include APP/time/subdir_vars.mk
 -include APP/uart/subdir_vars.mk
+-include CMD/subdir_vars.mk
 -include DSP2833x_Libraries/subdir_vars.mk
 -include subdir_rules.mk
 -include APP/OLED/subdir_rules.mk
@@ -93,6 +94,7 @@ RMDIR := RMDIR /S/Q
 -include APP/spi/subdir_rules.mk
 -include APP/time/subdir_rules.mk
 -include APP/uart/subdir_rules.mk
+-include CMD/subdir_rules.mk
 -include DSP2833x_Libraries/subdir_rules.mk
 -include objects.mk
 

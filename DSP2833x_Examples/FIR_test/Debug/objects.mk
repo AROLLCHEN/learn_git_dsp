@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lrts2800_fpu32.lib -llibc.a
+LIBS := -llibc.a
 

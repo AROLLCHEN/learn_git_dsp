@@ -117,8 +117,6 @@ Uint16 RFFT_Peak_Find(float *src ,Uint16 len,Uint16 *index) //幅度谱及其长度
 }
 
 
-
-
 float RFFT_Fractional_Frequency(float ratio)
  {
       Uint16 niter;

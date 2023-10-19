@@ -82,10 +82,8 @@ ORDERED_OBJS += \
 "./libs/DSP2833x_SysCtrl.obj" \
 "./libs/DSP2833x_Xintf.obj" \
 "./libs/DSP2833x_usDelay.obj" \
-"../DSP2833x_Headers_nonBIOS.cmd" \
-"../F28335.cmd" \
+"../28335_RAM_lnk.cmd" \
 $(GEN_CMDS__FLAG) \
--lrts2800_fpu32.lib \
 -llibc.a \
 
 -include ../makefile.init
@@ -212,14 +210,13 @@ EXE_OUTPUTS__QUOTED += \
 
 
 # All Target
-all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "FIR_test.out"
+all: FIR_test.out
 
 # Tool invocations
 FIR_test.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: C2000 Linker'
-	"C:/ti/ccs1240/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi -z -m"FIR_test.map" --stack_size=0x300 --warn_sections -i"C:/ti/ccs1240/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/lib" -i"C:/ti/ccs1240/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="FIR_test_linkInfo.xml" --rom_model -o "FIR_test.out" $(ORDERED_OBJS)
+	"C:/ti/ccs1240/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/bin/cl2000" -v28 -ml -mt --float_support=fpu32 -g --diag_wrap=off --diag_warning=225 --display_error_number -z -m"FIR_test.map" --stack_size=0x300 --warn_sections -i"C:/ti/ccs1240/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/lib" -i"C:/ti/ccs1240/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="FIR_test_linkInfo.xml" --rom_model -o "FIR_test.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 

@@ -6,7 +6,7 @@
  */
 
 #include "lcd1602.h"
-
+#include <string.h>
 
 void LCD1602_GPIOInit(void)
 {
@@ -28,7 +28,7 @@ void LCD1602_GPIOInit(void)
 
 	EDIS;
 }
-
+//显示的地址   0x80是第一行第一个，0xc0是第二行第一个
 void LCD1602_WriteCmd(unsigned char cmd)
 {
 	LCD1602_EN_SETL;
@@ -40,6 +40,7 @@ void LCD1602_WriteCmd(unsigned char cmd)
 	LCD1602_EN_SETL;
 }
 
+
 void LCD1602_WriteData(unsigned char dat)
 {
 	LCD1602_EN_SETL;
@@ -50,6 +51,18 @@ void LCD1602_WriteData(unsigned char dat)
 	DELAY_US(1000);
 	LCD1602_EN_SETL;
 }
+
+
+void DispStr(unsigned char *ptr)
+{
+    unsigned char i,n;
+    n=strlen(ptr);
+    for (i=0;i<n;i++)
+    {
+    	LCD1602_WriteData(ptr[i]);
+    }
+}
+
 
 void LCD1602_Init(void)
 {

@@ -12,13 +12,17 @@ GEN_CMDS__FLAG :=
 ORDERED_OBJS += \
 "./APP/epwm/epwm.obj" \
 "./DSP2833x_Libraries/DSP2833x_ADC_cal.obj" \
+"./DSP2833x_Libraries/DSP2833x_Adc.obj" \
 "./DSP2833x_Libraries/DSP2833x_CodeStartBranch.obj" \
+"./DSP2833x_Libraries/DSP2833x_CpuTimers.obj" \
 "./DSP2833x_Libraries/DSP2833x_DefaultIsr.obj" \
+"./DSP2833x_Libraries/DSP2833x_EPwm.obj" \
 "./DSP2833x_Libraries/DSP2833x_GlobalVariableDefs.obj" \
 "./DSP2833x_Libraries/DSP2833x_Gpio.obj" \
 "./DSP2833x_Libraries/DSP2833x_PieCtrl.obj" \
 "./DSP2833x_Libraries/DSP2833x_PieVect.obj" \
 "./DSP2833x_Libraries/DSP2833x_SysCtrl.obj" \
+"./DSP2833x_Libraries/DSP2833x_Xintf.obj" \
 "./DSP2833x_Libraries/DSP2833x_usDelay.obj" \
 "./User/main.obj" \
 "../DSP2833x_Libraries/28335_RAM_lnk.cmd" \
@@ -136,28 +140,28 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-DSP2833x_ProjectTemplate.out \
+ADC_PWM.out \
 
 EXE_OUTPUTS__QUOTED += \
-"DSP2833x_ProjectTemplate.out" \
+"ADC_PWM.out" \
 
 
 # All Target
-all: DSP2833x_ProjectTemplate.out
+all: ADC_PWM.out
 
 # Tool invocations
-DSP2833x_ProjectTemplate.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
+ADC_PWM.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: C2000 Linker'
-	"C:/ti/ccs1240/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/bin/cl2000" -v28 -ml -mt --float_support=fpu32 -g --display_error_number --diag_warning=225 --diag_wrap=off -z -m"DSP2833x_ProjectTemplate.map" --stack_size=0x300 --warn_sections -i"C:/ti/ccs1240/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/lib" -i"C:/ti/ccs1240/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include" --reread_libs --display_error_number --diag_wrap=off --xml_link_info="DSP2833x_ProjectTemplate_linkInfo.xml" --rom_model -o "DSP2833x_ProjectTemplate.out" $(ORDERED_OBJS)
+	"C:/ti/ccs1240/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/bin/cl2000" -v28 -ml -mt --float_support=fpu32 -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi -z -m"ADC_PWM.map" --stack_size=0x300 --warn_sections -i"C:/ti/ccs1240/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/lib" -i"C:/ti/ccs1240/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="ADC_PWM_linkInfo.xml" --rom_model -o "ADC_PWM.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "APP\epwm\epwm.obj" "DSP2833x_Libraries\DSP2833x_ADC_cal.obj" "DSP2833x_Libraries\DSP2833x_CodeStartBranch.obj" "DSP2833x_Libraries\DSP2833x_DefaultIsr.obj" "DSP2833x_Libraries\DSP2833x_GlobalVariableDefs.obj" "DSP2833x_Libraries\DSP2833x_Gpio.obj" "DSP2833x_Libraries\DSP2833x_PieCtrl.obj" "DSP2833x_Libraries\DSP2833x_PieVect.obj" "DSP2833x_Libraries\DSP2833x_SysCtrl.obj" "DSP2833x_Libraries\DSP2833x_usDelay.obj" "User\main.obj" 
-	-$(RM) "APP\epwm\epwm.d" "DSP2833x_Libraries\DSP2833x_DefaultIsr.d" "DSP2833x_Libraries\DSP2833x_GlobalVariableDefs.d" "DSP2833x_Libraries\DSP2833x_Gpio.d" "DSP2833x_Libraries\DSP2833x_PieCtrl.d" "DSP2833x_Libraries\DSP2833x_PieVect.d" "DSP2833x_Libraries\DSP2833x_SysCtrl.d" "User\main.d" 
+	-$(RM) "APP\epwm\epwm.obj" "DSP2833x_Libraries\DSP2833x_ADC_cal.obj" "DSP2833x_Libraries\DSP2833x_Adc.obj" "DSP2833x_Libraries\DSP2833x_CodeStartBranch.obj" "DSP2833x_Libraries\DSP2833x_CpuTimers.obj" "DSP2833x_Libraries\DSP2833x_DefaultIsr.obj" "DSP2833x_Libraries\DSP2833x_EPwm.obj" "DSP2833x_Libraries\DSP2833x_GlobalVariableDefs.obj" "DSP2833x_Libraries\DSP2833x_Gpio.obj" "DSP2833x_Libraries\DSP2833x_PieCtrl.obj" "DSP2833x_Libraries\DSP2833x_PieVect.obj" "DSP2833x_Libraries\DSP2833x_SysCtrl.obj" "DSP2833x_Libraries\DSP2833x_Xintf.obj" "DSP2833x_Libraries\DSP2833x_usDelay.obj" "User\main.obj" 
+	-$(RM) "APP\epwm\epwm.d" "DSP2833x_Libraries\DSP2833x_Adc.d" "DSP2833x_Libraries\DSP2833x_CpuTimers.d" "DSP2833x_Libraries\DSP2833x_DefaultIsr.d" "DSP2833x_Libraries\DSP2833x_EPwm.d" "DSP2833x_Libraries\DSP2833x_GlobalVariableDefs.d" "DSP2833x_Libraries\DSP2833x_Gpio.d" "DSP2833x_Libraries\DSP2833x_PieCtrl.d" "DSP2833x_Libraries\DSP2833x_PieVect.d" "DSP2833x_Libraries\DSP2833x_SysCtrl.d" "DSP2833x_Libraries\DSP2833x_Xintf.d" "User\main.d" 
 	-$(RM) "DSP2833x_Libraries\DSP2833x_ADC_cal.d" "DSP2833x_Libraries\DSP2833x_CodeStartBranch.d" "DSP2833x_Libraries\DSP2833x_usDelay.d" 
 	-@echo 'Finished clean'
 	-@echo ' '

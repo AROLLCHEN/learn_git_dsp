@@ -1,2 +1,2 @@
-DEFAULT_CCS_TARGET_CONFIGURATION=D\:\\DSP2833x_ProjectExample\\DSP2833x_Examples\\oled1\\targetConfigs\\TMS320F28335.ccxml
+DEFAULT_CCS_TARGET_CONFIGURATION=D\:\\DSP2833x_ProjectExample\\DSP2833x_Examples\\Example02_DSP2833x_LED\\targetConfigs\\TMS320F28335.ccxml
 eclipse.preferences.version=1

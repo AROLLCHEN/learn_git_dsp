@@ -1,12 +1,10 @@
 /*
  * epwm.c
  *
- *  Created on: 2023年10月7日
+ *  Created on: 2023年10月9日
  *      Author: CHENJIE
  */
-#include "DSP2833x_Device.h"     // DSP2833x Headerfile Include File
-#include "DSP2833x_Examples.h"   // DSP2833x Examples Include File
-
+#include "epwm.h"
 
 #if (CPU_FRQ_150MHZ)
   #define CPU_CLK   150e6
@@ -42,6 +40,10 @@
 
 void EPwmSetup()
 {
+    EALLOW;
+    SysCtrlRegs.PCLKCR0.bit.TBCLKSYNC = 0;   // Disable TBCLK within the ePWM
+    SysCtrlRegs.PCLKCR1.bit.EPWM1ENCLK = 1;  // ePWM1
+    EDIS;
     InitEPwm1Gpio();
    // InitEPwm();
 //  EPwm1Regs.TBSTS.all=0;
@@ -112,7 +114,4 @@ void EPwmSetup()
 
 
 }
-
-
-
 

@@ -7,14 +7,14 @@
 
 void main(void)
 {
-    u8 t = 0;
+    u8 t = ' ';
     InitSysCtrl();
     InitPieCtrl();
     IER = 0x0000;
     IFR = 0x0000;
     InitPieVectTable();
-    //MemCopy(&RamfuncsLoadStart,&RamfuncsLoadEnd,&RamfuncsRunStart);
-    //InitFlash(); //烧写要加MemCopy InitFlash 这两句。如果在线调试必须删掉这两句
+    MemCopy(&RamfuncsLoadStart,&RamfuncsLoadEnd,&RamfuncsRunStart);
+    InitFlash(); //烧写要加MemCopy InitFlash 这两句。如果在线调试必须删掉这两句
     OLED_Init();
 
     OLED_ShowString(0,0,"ALIENTEK",24);

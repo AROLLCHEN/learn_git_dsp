@@ -16,7 +16,6 @@
 #include "lcd1602.h"
 
 
-
 /*******************************************************************************
 * 函 数 名         : main
 * 函数功能		   : 主函数
@@ -25,7 +24,8 @@
 *******************************************************************************/
 void main()
 {
-
+	int i=0;
+	unsigned char s[]="123456";
 
 	InitSysCtrl();
 	InitPieCtrl();
@@ -37,8 +37,15 @@ void main()
 	TIM0_Init(150,200000);//200ms
 	UARTa_Init(4800);
 	LCD1602_Init();
-	LCD1602_DispString(1," Hello PRECHIN! ");
-	LCD1602_DispStringEx(2,1,"www.prechin.cn");
+//	LCD1602_DispString(1," Hello ok ");
+//	LCD1602_DispStringEx(2,1,"www.prechin.cn");
+	 LCD1602_WriteCmd(0xc2);
+	 DispStr(s);
+//	 LCD1602_WriteData('s');
+//	 LCD1602_WriteData('5');
+//	 LCD1602_WriteCmd(0xc6);
+//	 LCD1602_WriteData('6');
+//	 LCD1602_WriteData('7');
 	while(1)
 	{
 

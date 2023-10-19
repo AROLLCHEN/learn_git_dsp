@@ -128,5 +128,6 @@ APP/relay \
 APP/spi \
 APP/time \
 APP/uart \
+CMD \
 DSP2833x_Libraries \
 

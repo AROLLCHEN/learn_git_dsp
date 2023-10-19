@@ -10,6 +10,10 @@
 #include "DSP2833x_Examples.h"
 
 
+#define RAM_RUN     0
+#define FLASH_RUN   1
+
+#define RUN_TYPE    RAM_RUN
 
 /*******************************************************************************
 * 函 数 名         : main
@@ -31,13 +35,13 @@ void main()
 	    InitPieVectTable();// 初始化 PIE 中断向量表
 	    // 中断重映射，注册中断程序入口（用户按需求添加）
 	/*程序烧录入28335（可选的）*/
-	//#if RUN_TYPE==FLASH_RUN
-	    //MemCopy(&RamfuncsLoadStart,&RamfuncsLoadEnd,&RamfuncsRunStart);
-	    //InitFlash();
-	//#endif
-	    //RFFT_ADC_Init();
+	#if RUN_TYPE==FLASH_RUN
+	    MemCopy(&RamfuncsLoadStart,&RamfuncsLoadEnd,&RamfuncsRunStart);
+	    InitFlash();
+	#endif
+	    RFFT_ADC_Init();
 
-	    //RFFT_ADC_Caculate();
+	    RFFT_ADC_Caculate();
 
 
 

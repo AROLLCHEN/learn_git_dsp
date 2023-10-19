@@ -5,7 +5,7 @@
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.Texas Instruments XDS100v1 USB Emulator/C28xx" value="${build_artifact:Example31_DSP2833x_LCD1602}"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROJECT.Texas Instruments XDS100v1 USB Emulator/C28xx" value="Example31_DSP2833x_LCD1602"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="${target_config_active_default:Example31_DSP2833x_LCD1602}"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Texas Instruments XDS100v1 USB Emulator/C28xx" value="D:/DSP2833x_ProjectExample\DSP2833x_Examples\Example31_DSP2833x_LCD1602\Debug\Example31_DSP2833x_LCD1602.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Texas Instruments XDS100v1 USB Emulator/C28xx" value="C:/Users\xiao\Desktop\DSP1\Example31_DSP2833x_LCD1602\Debug\Example31_DSP2833x_LCD1602.out"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/Example31_DSP2833x_LCD1602"/>
 </listAttribute>

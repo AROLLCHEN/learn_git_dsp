@@ -71,8 +71,8 @@ PAGE 1 :
    RAMM0      : origin = 0x000050, length = 0x0003B0     /* on-chip RAM block M0 */
    RAMM1      : origin = 0x000400, length = 0x000400     /* on-chip RAM block M1 */
    RAML3      : origin = 0x00D000, length = 0x001000
-   RAML4      : origin = 0x00E000, length = 0x001000
-   RAML5      : origin = 0x00F000, length = 0x001000
+   RAML4      : origin = 0x00E000, length = 0x008000
+   RAML5      : origin = 0x016000, length = 0x008000
    ZONE7B     : origin = 0x20FC00, length = 0x000400     /* XINTF zone 7 - data space */
    FLASHB     : origin = 0x330000, length = 0x008000     /* on-chip FLASH */
 
@@ -118,11 +118,14 @@ SECTIONS
     .econst          : > RAML3,     PAGE = 1
     .sysmem          : > RAML3,     PAGE = 1
     .esysmem         : > RAML3,     PAGE = 1
+    ramfuncs 		 : > RAML3, 	PAGE = 1
 
     .sysmem          : > RAML3,     PAGE = 1
 
 	FIR_buffer0		: > RAML4,     PAGE = 1
-	FIR_buffer1		: > RAML5,     PAGE = 1
+	FIR_buffer1		: > RAML4,     PAGE = 1
+	FIR_buffer2		: > RAML5,     PAGE = 1
+	FIR_buffer3		: > RAML5,     PAGE = 1
 
 
    .cio             : > RAML3,     PAGE = 1

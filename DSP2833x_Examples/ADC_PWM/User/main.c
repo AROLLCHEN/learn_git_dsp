@@ -1,5 +1,7 @@
+
 #include "DSP2833x_Device.h"     // DSP2833x Headerfile Include File
 #include "DSP2833x_Examples.h"   // DSP2833x Examples Include File
+#include "epwm.h"
 
 #define POST_SHIFT   0  // Shift results after the entire sample table is full
 #define INLINE_SHIFT 1  // Shift results as the data is taken from the results regsiter
@@ -26,14 +28,8 @@ volatile float adc2=0;
 
 
 
-void ChoseCap(void);
-void EPwmSetup();
-void SetCap1Mode(void);
-void SetCap2Mode(void);
-
 Uint32 t1=0,t2=0,t3=0,t4=0,T1=0,T2=0,t5,t6,t7,t8,T3,T4,i,led=0,freq=0,duty=1,T1_temp=1,T2_temp=1;
-interrupt void ISRCap1(void);
-interrupt void ISRCap2(void);
+
 interrupt void epwm_int(void);
 void InitCapl();
 Uint16 array_index;
@@ -41,6 +37,7 @@ Uint16 array_index;
 
 void main(void)
 {
+
 
    InitSysCtrl();
 
@@ -62,46 +59,47 @@ void main(void)
 
    InitPieVectTable();
 
-   InitAdc();                                  //这个初始化程序，必须添加DSP2833x_Adc.C文件
-
-     EALLOW;
-     PieVectTable.EPWM1_INT = &epwm_int;
-     EDIS;
-
-      IER |= M_INT3;
-     //IER |= M_INT14;
-
-      PieCtrlRegs.PIEIER3.bit.INTx1 = 1;
-      EINT;
-      ERTM;
-
-      AdcRegs.ADCTRL1.bit.ACQ_PS = ADC_SHCLK;     //ADC采样时间选择
-      AdcRegs.ADCTRL3.bit.ADCCLKPS = ADC_CKPS;    //ADC内核分频
-      AdcRegs.ADCTRL1.bit.SEQ_CASC = 1;           //级联工作方式
-      AdcRegs.ADCTRL3.bit.SMODE_SEL= 0;           // 顺序采样
-      AdcRegs.ADCTRL1.bit.CONT_RUN = 1;            //连续采样
-      AdcRegs.ADCTRL1.bit.SEQ_OVRD = 1 ;           //完成排序后，排序器指针回到最初状态
-
-      AdcRegs.ADCMAXCONV.bit.MAX_CONV1 = 0x2;
-      AdcRegs.ADCCHSELSEQ1.bit.CONV00 = 0x0;
-      AdcRegs.ADCCHSELSEQ1.bit.CONV01 = 0x1 ;
-      AdcRegs.ADCCHSELSEQ1.bit.CONV02 = 0x2 ;
-      AdcRegs.ADCTRL2.bit.EPWM_SOCA_SEQ1 = 1; //软件启动转换功能
-      AdcRegs.ADCTRL2.bit.INT_ENA_SEQ1 = 0x1; //允许向CPU发出中断请求
-
-      for (i=0; i<BUF_SIZE; i++)
-      {
-        SampleTable[i] = 0;
-
-      }
+//   InitAdc();                                  //这个初始化程序，必须添加DSP2833x_Adc.C文件
+//
+//     EALLOW;
+//     PieVectTable.EPWM1_INT = &epwm_int;
+//     EDIS;
+//
+//      IER |= M_INT3;
+//     //IER |= M_INT14;
+//
+//      PieCtrlRegs.PIEIER3.bit.INTx1 = 1;
+//      EINT;
+//      ERTM;
+//
+//      AdcRegs.ADCTRL1.bit.ACQ_PS = ADC_SHCLK;     //ADC采样时间选择
+//      AdcRegs.ADCTRL3.bit.ADCCLKPS = ADC_CKPS;    //ADC内核分频
+//      AdcRegs.ADCTRL1.bit.SEQ_CASC = 1;           //级联工作方式
+//      AdcRegs.ADCTRL3.bit.SMODE_SEL= 0;           // 顺序采样
+//      AdcRegs.ADCTRL1.bit.CONT_RUN = 1;            //连续采样
+//      AdcRegs.ADCTRL1.bit.SEQ_OVRD = 1 ;           //完成排序后，排序器指针回到最初状态
+//
+//      AdcRegs.ADCMAXCONV.bit.MAX_CONV1 = 0x2;
+//      AdcRegs.ADCCHSELSEQ1.bit.CONV00 = 0x0;
+//      AdcRegs.ADCCHSELSEQ1.bit.CONV01 = 0x1 ;
+//      AdcRegs.ADCCHSELSEQ1.bit.CONV02 = 0x2 ;
+//      AdcRegs.ADCTRL2.bit.EPWM_SOCA_SEQ1 = 1; //软件启动转换功能
+//      AdcRegs.ADCTRL2.bit.INT_ENA_SEQ1 = 0x1; //允许向CPU发出中断请求
+//
+//      for (i=0; i<BUF_SIZE; i++)
+//      {
+//        SampleTable[i] = 0;
+//
+//      }
 
 
    EPwmSetup();
 
-    for(; ;)
-    {
 
-    }
+//    for(; ;)
+//    {
+//
+//    }
 
 }
 
@@ -114,7 +112,7 @@ interrupt void epwm_int(void)
           if(array_index>BUF_SIZE)
                 array_index = 0;
 
-            while(AdcRegs.ADCST.bit.INT_SEQ1 == 0);                 //等待ADC的中断位为1
+            while(AdcRegs.ADCST.bit.INT_SEQ1 == 1);                 //等待ADC的中断位为1
             AdcRegs.ADCST.bit.INT_SEQ1_CLR = 1;                     //清楚排序器中断位
 
 
@@ -130,6 +128,3 @@ interrupt void epwm_int(void)
       EPwm1Regs.ETCLR.bit.INT=1;
 
 }
-
-
-
